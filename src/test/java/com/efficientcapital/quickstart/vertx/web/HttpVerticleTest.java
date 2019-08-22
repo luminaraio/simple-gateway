@@ -29,7 +29,7 @@ public class HttpVerticleTest {
   @BeforeEach
   void prepare(Vertx vertx, VertxTestContext testContext) {
     JsonObject config = new JsonObject()
-      .put("serviceName", "REPLACE_ME_APP_NAME")
+      .put("serviceName", "simple-gateway")
       .put("http", new JsonObject()
         .put("host", "localhost")
         .put("port", 8080));

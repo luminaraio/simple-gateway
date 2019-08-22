@@ -29,7 +29,7 @@ jx create quickstart --pack maven-java11 -g luminaraio
 +
 and follow the instruction in the _quickstart import wizard_ and when promoted (_"select the quickstart you wish to create"_) choose `luminaraio/vertx-web-quickstart`
 
-. Validate that all instances of `REPLACE_ME_APP_NAME` are replaced by the name given to the project during step 1
+. Validate that all instances of `simple-gateway` are replaced by the name given to the project during step 1
 . Run the service (_locally_)
 +
 Execute:

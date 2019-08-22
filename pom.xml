@@ -12,10 +12,10 @@
   </parent>
 
   <groupId>com.efficientcapital</groupId>
-  <artifactId>REPLACE_ME_APP_NAME</artifactId>
+  <artifactId>simple-gateway</artifactId>
   <version>0.0.1</version>
 
-  <name>Efficient Capital - REPLACE_ME_APP_NAME</name>
+  <name>Efficient Capital - simple-gateway</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
