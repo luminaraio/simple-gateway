@@ -49,6 +49,7 @@ public class HttpVerticle extends AbstractVerticle {
     // Mount Handlers
     router.mountSubRouter("/", rootRouter(vertx));
     router.mountSubRouter("/health", healthRouter(vertx));
+    router.mountSubRouter("/hello", simpleServiceRouter(vertx, SimpleServiceHandler.create(vertx, discovery)));
 
     // ResourceNotFoundHandler and Failurehandler
     router.route()
@@ -128,5 +129,15 @@ public class HttpVerticle extends AbstractVerticle {
       .putHeader(HttpHeaders.CONTENT_TYPE, MediaTypes.APPLICATION_JSON)
       .setStatusCode(HttpResponseStatus.OK.code())
       .end(response.encode());
+  }
+
+  private Router simpleServiceRouter(Vertx vertx, SimpleServiceHandler simpleServiceHandler) {
+    Router router = Router.router(vertx);
+
+    router.post("/")
+      .handler(simpleServiceHandler::handleSayHello)
+      .failureHandler(new ErrorHandler());
+
+    return router;
   }
 }
