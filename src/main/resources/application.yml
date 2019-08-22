@@ -1,0 +1,5 @@
+serviceName:  REPLACE_ME_APP_NAME
+
+http:
+  host:       localhost
+  port:       8080

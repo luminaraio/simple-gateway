@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.efficientcapital</groupId>
+    <artifactId>ec-vertx-parent</artifactId>
+    <version>0.0.1</version>
+  </parent>
+
+  <groupId>com.efficientcapital</groupId>
+  <artifactId>REPLACE_ME_APP_NAME</artifactId>
+  <version>0.0.1</version>
+
+  <name>Efficient Capital - REPLACE_ME_APP_NAME</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <main.verticle>com.efficientcapital.quickstart.vertx.web.MainVerticle</main.verticle>
+
+    <!-- Efficient Capital - dependencies-->
+    <ec-commons.version>0.0.1</ec-commons.version>
+    <ec-commons-vertx.version>0.0.1</ec-commons-vertx.version>
+  </properties>
+
+  <dependencies>
+    <!-- Efficient Capital - dependencies -->
+    <dependency>
+      <groupId>com.efficientcapital</groupId>
+      <artifactId>ec-commons</artifactId>
+      <version>${ec-commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.efficientcapital</groupId>
+      <artifactId>ec-commons-vertx</artifactId>
+      <version>${ec-commons-vertx.version}</version>
+    </dependency>
+
+    <!-- Vert.x Web -->
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-client</artifactId>
+    </dependency>
+
+    <!-- Others -->
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <!-- Vert.x Maven Plugin-->
+      <plugin>
+        <groupId>io.reactiverse</groupId>
+        <artifactId>vertx-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- Static Analysis -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude></exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

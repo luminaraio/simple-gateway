@@ -1,0 +1,8 @@
+= REPLACE_ME_APP_NAME
+
+== References
+
+The repository is based on the following repositories:
+
+* https://github.com/vert-x3/vertx-gradle-starter[*vertx-gradle-starter*]
+* https://vertx.io/docs/vertx-docker/#_deploying_a_java_verticle_in_a_docker_container[*Vert.x Docker Images*]

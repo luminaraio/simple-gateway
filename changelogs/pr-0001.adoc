@@ -1,0 +1,73 @@
+# PR-0001
+
+[NOTE]
+====
+This project has a dependency on the following:
+
+- https://github.com/luminaraio/ec-parent[ec-parent]
+- https://github.com/luminaraio/ec-vertx-parent[ec-vertx-parent]
+
+Please ensure that you have the latest version of this project installed in you _local/remote_ maven repository (i.e. _~/.m2 / Nexus_).
+If they are not available (or not the latest version) please _clone_ the repositories and execute any `mvn *` command (for local usage) or import the projects above into _jenkinsx_
+====
+
+## Scope of Feature
+
+This PR provided the initial JenkinsX quick-start template for a *Vert.x Web Service* project (i.e. a project that does full CI/CD with promotions to the various environments present in our platform).
+
+## How to validate Feature
+
+To effectively validated that the PR does the feature above the following needs to happen:
+
+. Generate a sample project with the *jx* command-line program.
++
+Execute:
++
+```
+jx create quickstart --pack maven-java11 -g luminaraio
+```
++
+and follow the instruction in the _quickstart import wizard_ and when promoted (_"select the quickstart you wish to create"_) choose `luminaraio/vertx-web-quickstart`
+
+. Validate that all instances of `REPLACE_ME_APP_NAME` are replaced by the name given to the project during step 1
+. Run the service (_locally_)
++
+Execute:
++
+```
+cd <generated-project-name>
+mvn clean package -Dmaven.test.skip=true -Pvertx-run
+```
++
+This should start the service on port 8080
+
+. Validate the service is working by making a request
++
+Execute:
++
+```
+curl -s http://localhost:8080
+```
++
+The response should be:
++
+```
+{
+    "message": "Jenkins X! works like charm... sometimes",
+    "status": "OK"
+}
+```
++
+
+. Wait until the pipeline in *Jenkins X* has fully deployed and then validate that a _successful promotion/deployment to the **staging**_ happened
++
+Execute:
++
+```
+jx get application (1)
+curl -s $STAGING_URL (2)
+```
+
+* Should return a list of all the services/applications deployed in all your environments make a not of the staging URL for this application
+* Request the staging URL
+* A response like the one above should be received
