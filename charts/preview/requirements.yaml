@@ -10,7 +10,7 @@ dependencies:
   version: 2.3.92
 - alias: simple-service
   name: simple-service
-  repository: http://chartmuseum.jenkins-x.io
+  repository: http://chartmuseum.jx.35.246.79.234.nip.io
   version: 0.0.1
 
   # !! "alias: preview" must be last entry in dependencies array !!
